@@ -41,7 +41,6 @@ cc_library(
         ":linux_arm": crypto_sources_linux_arm,
         ":linux_x86": crypto_sources_linux_x86,
         ":linux_x86_64": crypto_sources_linux_x86_64,
-        "//conditions:default": crypto_sources_x86_64,
     }),
     hdrs = crypto_headers,
     includes = ["src/include"],
