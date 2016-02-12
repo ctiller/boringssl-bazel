@@ -36,15 +36,11 @@ config_setting(
 
 cc_library(
     name = "crypto",
-    srcs = crypto_internal_headers + crypto_sources + select({
-        ":linux_aarch64": crypto_sources_linux_aarch64,
-        ":linux_arm": crypto_sources_linux_arm,
-        ":linux_x86": crypto_sources_linux_x86,
-        ":linux_x86_64": crypto_sources_linux_x86_64,
-    }),
+    srcs = crypto_internal_headers + crypto_sources,
     hdrs = crypto_headers,
     includes = ["src/include"],
     visibility = ["//visibility:public"],
+    defines = ["OPENSSL_NO_ASM"],
 )
 
 cc_library(
